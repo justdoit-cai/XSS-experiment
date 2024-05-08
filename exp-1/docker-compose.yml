@@ -1,0 +1,18 @@
+version: '3'
+services:
+  web:
+    build: ./web
+    ports:
+      - 3000:3000
+    container_name: myWeb
+    networks:
+      - my_network
+  mongo:
+    build: ./mongo
+    container_name: myMongo
+    ports:
+      - 27017:27017
+    networks:
+      - my_network
+networks:
+  my_network:

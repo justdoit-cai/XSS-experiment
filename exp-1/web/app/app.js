@@ -13,6 +13,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 const Schema = mongoose.Schema;
 mongoose.connect("mongodb://myMongo:27017/demo");
@@ -39,13 +41,6 @@ let commentSchema = new Schema({
     }
 });
 
-//    mongoose.model 方法就是用来将一个架构发布为 model
-//    第一个参数：传入一个大写名词单数字符串用来表示你的数据库名称
-//                 mongoose 会自动将大写名词的字符串生成 小写复数 的集合名称
-//                 例如这里的 User 最终会变为 users 集合名称
-//    第二个参数：架构 Schema
-//
-//    返回值：模型构造函数
 let Comment = mongoose.model('Comment', commentSchema);
 
 function createToken(length) {
@@ -72,42 +67,40 @@ async function visit() {
 }
 
 app.get('/', (req, res) => {
-    res.render("index")
-})
-app.get('/api/comment', (req, res) => {
-    Comment.find().then((err, ret) => {
-        if (err) {
-            res.send(err)
-        } else {
-            res.send(ret)
-        }
+    Comment.find().then((ret) => {
+        res.render("index", {comments: ret})
     })
 })
-app.post('/api/comment', (req, res) => {
+app.post('/comment', (req, res) => {
     console.log(req.body)
     const content = req.body.content
     let comment = new Comment({
         _id: createToken(16),
         content: content
     })
-    comment.save().then((ret) => {
-        res.send(ret)
-    }).catch((err) => {
-        res.send(err)
+    comment.save().then(() => {
+        Comment.find().then((ret) => {
+            console.log(ret)
+            res.render("index", {comments: ret})
+        })
     })
 })
-app.delete('/api/comment/:id', (req, res) => {
+app.delete('/comment/:id', (req, res) => {
     const id = req.params['id'];
+    console.log(id)
     Comment.deleteOne({
         _id: id
-    }).then((ret) => {
-        res.send(ret)
-    }).catch((err) => {
-        res.send(err)
+    }).then(() => {
+        Comment.find().then((ret) => {
+            console.log(ret)
+            res.render("index", {comments: ret})
+        })
     })
+
 })
-app.get('/api/visit', (req, res) => {
+app.get('/visit', (req, res) => {
     visit()
+    res.send("success")
 })
 
 module.exports = app;

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form id="comment-form">
+    <div>
+        <label for="comment">评论</label>
+        <input type="text" id="comment" name="comment" required/>
+    </div>
+    <button type="submit">提交</button>
+</form>
+<br>
+<div>
+    <h2>comment List</h2>
+    <ul id="comment-list">
+        <% for(var i = 0;i < comments.length;i++){ %>
+            <li><%- comments[i]['content'] %>
+                <button id="<%= comments[i]['id'] %>">Delete</button>
+            </li>
+        <% } %>
+    </ul>
+</div>
+</body>
+<script>
+    const commentForm = document.getElementById('comment-form')
+
+    commentForm.addEventListener('submit', async (event) => {
+        event.preventDefault()
+
+        const formData = new FormData(commentForm)
+        const comment = formData.get('comment')
+
+        try {
+            const response = await fetch('/comment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({content: comment})
+            })
+            window.location.reload();
+        } catch (error) {
+            alert('comment submit error:', error.message)
+        }
+    })
+
+    const btns = Array.from(document.getElementsByTagName('button'))
+    console.log(btns)
+    btns.forEach((btn) => {
+        const id = btn.getAttribute('id')
+        if (id) {
+            console.log(id)
+            btn.addEventListener('click', async () => {
+                try {
+                    const response = await fetch(`/comment/${id}`, {
+                        method: 'DELETE',
+                    })
+                    window.location.reload();
+                } catch (error) {
+                    alert('comment delete error:', error.message)
+                }
+            })
+        }
+    })
+</script>
+</html>

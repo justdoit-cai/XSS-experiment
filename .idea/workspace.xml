@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e97afcd5-f29e-4f11-9cff-596247bdac7b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/exp-1/web/app/.gitingore" beforeDir="false" afterPath="$PROJECT_DIR$/exp-1/web/app/.gitingore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp-2/web/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/exp-2/web/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +77,7 @@
       <option name="presentableId" value="Default" />
       <updated>1715191338610</updated>
       <workItem from="1715191339728" duration="29000" />
-      <workItem from="1715250670933" duration="8940000" />
+      <workItem from="1715250670933" duration="9891000" />
     </task>
     <servers />
   </component>

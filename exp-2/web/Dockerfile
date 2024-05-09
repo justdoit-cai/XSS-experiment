@@ -7,7 +7,7 @@ RUN apt-get update && \
 ARG PUPPETEER_DOWNLOAD_HOST=https://cdn.npmmirror.com/binaries
 COPY app /opt/
 WORKDIR /opt/app
-# RUN npm i
+RUN npm i
 ARG FLAG=flag{default_flag}
 RUN echo $FLAG > /flag
 EXPOSE 3000

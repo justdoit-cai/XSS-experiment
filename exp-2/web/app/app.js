@@ -68,8 +68,12 @@ app.get('/', (req, res) => {
     res.render("index")
 })
 app.get('/api/comment', (req, res) => {
-    Comment.find().then((ret) => {
-        res.render("index", {comments: ret})
+    Comment.find().then((err, ret) => {
+        if (err) {
+            res.send(err)
+        } else {
+            res.send(ret)
+        }
     })
 })
 app.post('/api/comment', (req, res) => {
@@ -97,7 +101,6 @@ app.delete('/api/comment/:id', (req, res) => {
 })
 app.get('/api/visit', (req, res) => {
     visit()
-    res.send("success")
 })
 
 module.exports = app;

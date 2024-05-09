@@ -1,1 +1,5 @@
-node_modules/
+exp-1/web/app/node_modules/
+exp-2/web/app/node_modules/
+exp-1/.idea/
+exp-2/.idea/
+.idea/

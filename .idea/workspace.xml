@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e97afcd5-f29e-4f11-9cff-596247bdac7b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/exp-1/web/app/views/index.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitingore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp-1/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/exp-1/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp-1/web/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/exp-1/web/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp-1/web/app/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/exp-1/web/app/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp-1/web/app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/exp-1/web/app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp-1/web/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/exp-1/web/app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp-1/web/app/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp-1/.gitingore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp-1/web/app/.gitingore" beforeDir="false" afterPath="$PROJECT_DIR$/exp-1/web/app/.gitingore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp-2/web/app/.gitingore" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +80,7 @@
       <option name="presentableId" value="Default" />
       <updated>1715191338610</updated>
       <workItem from="1715191339728" duration="29000" />
-      <workItem from="1715250670933" duration="8545000" />
+      <workItem from="1715250670933" duration="8880000" />
     </task>
     <servers />
   </component>
